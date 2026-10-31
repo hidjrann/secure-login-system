@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Şəxsi kabinet | Secure Login{% endblock %}
+{% block content %}
+<div class="success-icon">✓</div>
+<div class="eyebrow">TƏHLÜKƏSİZ GİRİŞ TƏSDİQLƏNDİ</div>
+<h1>Xoş gəlmisiniz, {{ username }}!</h1>
+<p class="muted">Siz autentifikasiya olundunuz və qorunan səhifəyə giriş əldə etdiniz.</p>
+<div class="security-list">
+  <div><span class="dot"></span> Aktiv istifadəçi sessiyası</div>
+  <div><span class="dot"></span> Giriş icazəsi yoxlanılıb</div>
+  <div><span class="dot"></span> Parol heş formasında saxlanılır</div>
+</div>
+<form method="post" action="{{ url_for('logout') }}">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <button class="secondary" type="submit">Sistemdən çıxış</button>
+</form>
+{% endblock %}

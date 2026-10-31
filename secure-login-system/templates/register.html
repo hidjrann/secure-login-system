@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Qeydiyyat | Secure Login{% endblock %}
+{% block content %}
+<div class="eyebrow">YENİ HESAB</div>
+<h1>Qeydiyyatdan keçin</h1>
+<p class="muted">Parolunuz verilənlər bazasında açıq mətn kimi saxlanılmır.</p>
+<form method="post">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <label for="username">İstifadəçi adı</label>
+  <input id="username" name="username" autocomplete="username" required minlength="3" maxlength="30">
+  <label for="password">Parol</label>
+  <input id="password" name="password" type="password" autocomplete="new-password" required minlength="8">
+  <small>Ən azı 8 simvol.</small>
+  <button type="submit">Hesab yarat <span>→</span></button>
+</form>
+<p class="switch">Artıq hesabınız var? <a href="{{ url_for('login') }}">Daxil olun</a></p>
+{% endblock %}

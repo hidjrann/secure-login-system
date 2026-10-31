@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Giriş | Secure Login{% endblock %}
+{% block content %}
+<div class="eyebrow">XOŞ GƏLMİSİNİZ</div>
+<h1>Hesabınıza daxil olun</h1>
+<p class="muted">Davam etmək üçün istifadəçi məlumatlarınızı daxil edin.</p>
+<form method="post">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <label for="username">İstifadəçi adı</label>
+  <input id="username" name="username" autocomplete="username" required minlength="3" maxlength="30">
+  <label for="password">Parol</label>
+  <input id="password" name="password" type="password" autocomplete="current-password" required>
+  <button type="submit">Daxil ol <span>→</span></button>
+</form>
+<p class="switch">Hesabınız yoxdur? <a href="{{ url_for('register') }}">Qeydiyyatdan keçin</a></p>
+{% endblock %}
